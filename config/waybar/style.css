@@ -1,0 +1,160 @@
+/* 
+ * Cyberpunk Neon Waybar Style
+ */
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    border-bottom: 2px solid #00f3ff;
+}
+
+/* WORKSPACES */
+#workspaces {
+    background: transparent;
+    margin: 0 4px;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    color: #ffffff;
+    background: transparent;
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button.active {
+    color: #00f3ff;
+    border-bottom: 3px solid #00f3ff;
+}
+
+#workspaces button.urgent {
+    color: #ff00ff;
+    background: #ff0000;
+}
+
+#workspaces button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* MEDIA PLAYER - Cyberpunk Neon */
+#custom-media {
+    padding: 0 15px;
+    margin: 0 8px;
+    background: rgba(0, 243, 255, 0.1);
+    color: #00f3ff;
+    border-radius: 4px;
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(0, 243, 255, 0.6);
+    transition: all 0.3s ease;
+}
+
+#custom-media.Playing {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        text-shadow: 0 0 8px rgba(0, 243, 255, 0.6);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(0, 243, 255, 0.8), 0 0 30px rgba(255, 0, 255, 0.4);
+        text-shadow: 0 0 15px rgba(0, 243, 255, 0.9), 0 0 20px rgba(255, 0, 255, 0.5);
+    }
+
+    100% {
+        box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        text-shadow: 0 0 8px rgba(0, 243, 255, 0.6);
+    }
+}
+
+#custom-media:hover {
+    background: rgba(0, 243, 255, 0.2);
+    text-shadow: 0 0 12px rgba(0, 243, 255, 0.9);
+}
+
+#custom-media.spotify {
+    color: #1db954;
+    text-shadow: 0 0 8px rgba(29, 185, 84, 0.6);
+}
+
+#custom-media.Paused {
+    color: #ff00ff;
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.6);
+    animation: none;
+}
+
+/* MODULES */
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#tray {
+    padding: 0 10px;
+    margin: 0 4px;
+    background: transparent;
+    color: #ffffff;
+}
+
+/* CLOCK - Centerpiece */
+#clock {
+    font-weight: bold;
+    color: #ff00ff;
+    text-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
+}
+
+/* HARDWARE INFO */
+#cpu {
+    color: #00f3ff;
+}
+
+#memory {
+    color: #bd93f9;
+}
+
+#temperature {
+    color: #ff5555;
+}
+
+#battery {
+    color: #50fa7b;
+}
+
+#battery.warning {
+    color: #ffb86c;
+}
+
+#battery.critical {
+    color: #ff5555;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#network {
+    color: #8be9fd;
+}
+
+/* TRAY */
+#tray {
+    background-color: #282a36;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}

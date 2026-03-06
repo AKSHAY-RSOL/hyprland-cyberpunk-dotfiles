@@ -1,0 +1,15 @@
+# Wallpapers Directory
+# Place your wallpapers here after installation.
+# 
+# Required files for full functionality:
+# - 6.mp4 (or any video) - Main desktop video wallpaper
+# - lockvideo.mp4 - Lock screen transition video
+# - lock_wallpaper.png - Lock screen background
+#
+# Optional:
+# - Any .png, .jpg, .gif files for random_wallpaper.sh script
+#
+# Recommended cyberpunk wallpapers sources:
+# - https://wallhaven.cc/search?q=cyberpunk
+# - https://www.reddit.com/r/wallpapers/
+# - https://unsplash.com/s/photos/cyberpunk

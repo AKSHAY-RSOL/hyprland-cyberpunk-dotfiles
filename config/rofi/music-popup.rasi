@@ -1,0 +1,88 @@
+/**
+ * Cyberpunk Music Popup v3 (Glassmorphic)
+ */
+
+* {
+    background-color: transparent;
+    text-color: #00f3ff;
+    font: "JetBrainsMono Nerd Font Bold 14";
+}
+
+window {
+    transparency: "real";
+    location: north; 
+    anchor: north;
+    y-offset: 60px;
+    width: 600px;
+    
+    /* 1. Glass Look Restored */
+    background-color: rgba(0, 0, 0, 0.4); /* High transparency */
+    border: 2px;
+    border-color: #00f3ff;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+mainbox {
+    children: [ inputbar, message, listview ];
+    spacing: 15px;
+}
+
+inputbar {
+    children: [ prompt ];
+    background-color: transparent;
+    padding: 0px 10px;
+}
+
+prompt {
+    font: "JetBrainsMono Nerd Font Bold 18";
+    text-color: #ffffff; /* Artist Name White */
+    vertical-align: 0.5;
+}
+
+message {
+    background-color: rgba(0, 243, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px;
+    border-color: rgba(0, 243, 255, 0.3);
+}
+
+textbox {
+    font: "JetBrainsMono Nerd Font 16";
+    text-color: #00f3ff;
+    horizontal-align: 0.5;
+}
+
+listview {
+    columns: 5; /* 5 Buttons now */
+    lines: 1;
+    fixed-height: true;
+    margin: 10px 0px 0px 0px;
+    spacing: 15px;
+    scrollbar: false;
+}
+
+element {
+    orientation: vertical;
+    padding: 15px 10px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black buttons */
+    
+    border: 1px;
+    border-color: #00f3ff;
+}
+
+/* 2. Black Buttons when selected */
+element selected {
+    background-color: #00f3ff; /* Cyan Background */
+    text-color: #000000;       /* Black Text */
+    border-color: #ffffff;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    background-color: transparent;
+    text-color: inherit;
+}

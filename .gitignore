@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+.cache/
+
+# Wallpapers (users should add their own)
+config/hypr/wallpapers/*.mp4
+config/hypr/wallpapers/*.png
+config/hypr/wallpapers/*.jpg
+config/hypr/wallpapers/*.gif
+!config/hypr/wallpapers/.gitkeep
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Temporary
+*.tmp
+*.log
