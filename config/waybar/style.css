@@ -1,5 +1,6 @@
 /* 
  * Cyberpunk Neon Waybar Style
+ * Colors: Cyan (#00f3ff), Magenta (#ff00ff)
  */
 
 * {
@@ -11,9 +12,13 @@
 }
 
 window#waybar {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(5, 10, 14, 0.85);
     color: #ffffff;
     border-bottom: 2px solid #00f3ff;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
 }
 
 /* WORKSPACES */
@@ -27,29 +32,32 @@ window#waybar {
     color: #ffffff;
     background: transparent;
     border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
 }
 
 #workspaces button.active {
     color: #00f3ff;
     border-bottom: 3px solid #00f3ff;
+    text-shadow: 0 0 8px rgba(0, 243, 255, 0.6);
 }
 
 #workspaces button.urgent {
     color: #ff00ff;
-    background: #ff0000;
+    background: rgba(255, 0, 255, 0.2);
 }
 
 #workspaces button:hover {
     background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
 }
 
-/* MEDIA PLAYER - Cyberpunk Neon */
+/* MEDIA PLAYER */
 #custom-media {
     padding: 0 15px;
     margin: 0 8px;
     background: rgba(0, 243, 255, 0.1);
     color: #00f3ff;
-    border-radius: 4px;
+    border-radius: 8px;
     font-weight: bold;
     text-shadow: 0 0 8px rgba(0, 243, 255, 0.6);
     transition: all 0.3s ease;
@@ -60,30 +68,18 @@ window#waybar {
 }
 
 @keyframes pulse {
-    0% {
+    0%, 100% {
         box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
         text-shadow: 0 0 8px rgba(0, 243, 255, 0.6);
     }
-
     50% {
         box-shadow: 0 0 20px rgba(0, 243, 255, 0.8), 0 0 30px rgba(255, 0, 255, 0.4);
         text-shadow: 0 0 15px rgba(0, 243, 255, 0.9), 0 0 20px rgba(255, 0, 255, 0.5);
-    }
-
-    100% {
-        box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
-        text-shadow: 0 0 8px rgba(0, 243, 255, 0.6);
     }
 }
 
 #custom-media:hover {
     background: rgba(0, 243, 255, 0.2);
-    text-shadow: 0 0 12px rgba(0, 243, 255, 0.9);
-}
-
-#custom-media.spotify {
-    color: #1db954;
-    text-shadow: 0 0 8px rgba(29, 185, 84, 0.6);
 }
 
 #custom-media.Paused {
@@ -100,17 +96,16 @@ window#waybar {
 #temperature,
 #network,
 #tray {
-    padding: 0 10px;
+    padding: 0 12px;
     margin: 0 4px;
     background: transparent;
     color: #ffffff;
+    transition: all 0.3s ease;
 }
 
-/* CLOCK - Centerpiece */
+/* CLOCK */
 #clock {
     font-weight: bold;
-    color: #ff00ff;
-    text-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
 }
 
 /* HARDWARE INFO */
@@ -123,38 +118,73 @@ window#waybar {
 }
 
 #temperature {
-    color: #ff5555;
+    color: #50fa7b;
 }
 
+#temperature.critical {
+    color: #ff5555;
+    animation: blink 0.5s linear infinite alternate;
+}
+
+/* BATTERY */
 #battery {
     color: #50fa7b;
 }
 
-#battery.warning {
+#battery.charging {
+    color: #00f3ff;
+}
+
+#battery.warning:not(.charging) {
     color: #ffb86c;
 }
 
-#battery.critical {
+#battery.critical:not(.charging) {
     color: #ff5555;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    animation: blink 0.5s linear infinite alternate;
 }
 
+/* NETWORK */
 #network {
     color: #8be9fd;
 }
 
-/* TRAY */
-#tray {
-    background-color: #282a36;
+#network.disconnected {
+    color: #ff5555;
 }
 
+/* TRAY */
+#tray {
+    background-color: rgba(40, 42, 54, 0.5);
+    border-radius: 8px;
+    padding: 0 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #ff5555;
+}
+
+/* ANIMATIONS */
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: #000000;
+        background-color: #ff5555;
+        color: #ffffff;
     }
+}
+
+/* TOOLTIP */
+tooltip {
+    background: rgba(5, 10, 14, 0.95);
+    border: 1px solid #00f3ff;
+    border-radius: 8px;
+}
+
+tooltip label {
+    color: #ffffff;
+    padding: 5px;
 }

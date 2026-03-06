@@ -2,15 +2,13 @@
 
 # 🌆 Hyprland Cyberpunk Dotfiles
 
-[![Hyprland](https://img.shields.io/badge/Hyprland-0.52+-00f3ff?style=for-the-badge&logo=linux&logoColor=white)](https://hyprland.org/)
+[![Hyprland](https://img.shields.io/badge/Hyprland-0.40+-00f3ff?style=for-the-badge&logo=linux&logoColor=white)](https://hyprland.org/)
 [![License](https://img.shields.io/badge/License-MIT-ff00ff?style=for-the-badge)](LICENSE)
-[![Stars](https://img.shields.io/github/stars/akshaygb/hyprland-cyberpunk-dotfiles?style=for-the-badge&color=00f3ff)](https://github.com/akshaygb/hyprland-cyberpunk-dotfiles/stargazers)
+[![Arch](https://img.shields.io/badge/Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white)](https://archlinux.org/)
 
 **A futuristic, neon-themed Hyprland rice with glassmorphism effects**
 
 *Neon Dreams • Glass Aesthetics • Futuristic Vibes*
-
-![Cyberpunk Preview](https://raw.githubusercontent.com/akshaygb/hyprland-cyberpunk-dotfiles/main/preview.png)
 
 </div>
 
@@ -18,58 +16,40 @@
 
 ## ✨ Features
 
-- 🎨 **Cyberpunk Neon Theme** - Cyan (#00f3ff) and Magenta (#ff00ff) color scheme
-- 🪟 **Glassmorphism** - Blur effects, transparency, and rounded corners
-- 🎬 **Video Wallpaper** - Animated desktop using mpvpaper
-- 🔒 **Styled Lock Screen** - Custom hyprlock with video transition
-- 📊 **Info Bar** - Feature-rich Waybar with media controls
-- 🚀 **App Launcher** - Cyberpunk-themed Rofi
-- 🖥️ **Terminal** - Kitty with matching neon colors
-- 🔔 **Notifications** - Dunst with cyberpunk styling
+| Feature | Description |
+|---------|-------------|
+| 🎨 **Cyberpunk Theme** | Cyan (#00f3ff) and Magenta (#ff00ff) neon colors |
+| 🪟 **Glassmorphism** | Blur, transparency, and rounded corners everywhere |
+| 🎬 **Video Wallpaper** | Optional animated desktop using mpvpaper |
+| 🔒 **Styled Lock Screen** | Custom hyprlock with neon styling |
+| 📊 **Info Bar** | Feature-rich Waybar with system stats |
+| 🚀 **App Launcher** | Cyberpunk-themed Rofi |
+| 🖥️ **Terminal** | Kitty with matching neon colors |
+| 🔔 **Notifications** | Dunst with cyberpunk styling |
+| 📸 **Screenshots** | Region, window, and fullscreen capture |
 
 ---
 
-## 📦 What's Included
+## 📦 Components
 
-| Component | Description |
-|-----------|-------------|
-| **Hyprland** | Main compositor config with animations |
-| **Hyprlock** | Lock screen with neon styling |
-| **Hypridle** | Idle management (auto-suspend) |
-| **Waybar** | Status bar with media, system stats |
-| **Rofi** | App launcher + music popup |
-| **Kitty** | Terminal emulator |
-| **Dunst** | Notification daemon |
-
----
-
-## 🖼️ Screenshots
-
-<details>
-<summary>Click to expand screenshots</summary>
-
-### Desktop
-![Desktop](https://placehold.co/800x450/050a0e/00f3ff?text=Desktop+Preview)
-
-### App Launcher (Rofi)
-![Rofi](https://placehold.co/800x450/050a0e/00f3ff?text=Rofi+Launcher)
-
-### Lock Screen
-![Lock](https://placehold.co/800x450/050a0e/00f3ff?text=Lock+Screen)
-
-### Waybar
-![Waybar](https://placehold.co/800x100/050a0e/00f3ff?text=Waybar)
-
-</details>
+| Component | Config File | Description |
+|-----------|-------------|-------------|
+| **Hyprland** | `hyprland.conf` | Window manager with animations |
+| **Hyprlock** | `hyprlock.conf` | Neon lock screen |
+| **Hypridle** | `hypridle.conf` | Auto-lock and suspend |
+| **Waybar** | `config`, `style.css` | Status bar |
+| **Rofi** | `launcher.rasi` | Application launcher |
+| **Kitty** | `kitty.conf` | Terminal emulator |
+| **Dunst** | `dunstrc` | Notifications |
 
 ---
 
 ## 🚀 Installation
 
-### Quick Install (Arch Linux)
+### Quick Install (Recommended)
 
 ```bash
-git clone https://github.com/akshaygb/hyprland-cyberpunk-dotfiles.git
+git clone https://github.com/AKSHAY-RSOL/hyprland-cyberpunk-dotfiles.git
 cd hyprland-cyberpunk-dotfiles
 chmod +x install.sh
 ./install.sh
@@ -77,119 +57,129 @@ chmod +x install.sh
 
 ### Manual Installation
 
-1. **Install Dependencies**
+<details>
+<summary><b>1. Install Dependencies</b></summary>
 
-   <details>
-   <summary>Arch Linux / Manjaro</summary>
+#### Arch Linux / EndeavourOS / Manjaro
 
-   ```bash
-   # Core packages
-   sudo pacman -S hyprland hyprlock hypridle xdg-desktop-portal-hyprland
-   
-   # Status bar & launcher
-   sudo pacman -S waybar rofi dunst
-   
-   # Terminal & utilities
-   sudo pacman -S kitty brightnessctl playerctl grim slurp wl-clipboard
-   
-   # System tray
-   sudo pacman -S network-manager-applet blueman polkit-kde-agent
-   
-   # Fonts & themes
-   sudo pacman -S ttf-jetbrains-mono-nerd papirus-icon-theme qt5ct
-   
-   # AUR packages (using yay)
-   yay -S mpvpaper swww bibata-cursor-theme
-   ```
+```bash
+# Core
+sudo pacman -S hyprland hyprlock hypridle xdg-desktop-portal-hyprland
 
-   </details>
+# Bar, launcher, notifications
+sudo pacman -S waybar rofi dunst
 
-   <details>
-   <summary>Fedora</summary>
+# Terminal and utilities
+sudo pacman -S kitty brightnessctl playerctl grim slurp wl-clipboard jq
 
-   ```bash
-   sudo dnf install hyprland hyprlock hypridle xdg-desktop-portal-hyprland
-   sudo dnf install waybar rofi dunst kitty brightnessctl playerctl
-   sudo dnf install grim slurp wl-clipboard network-manager-applet blueman
-   sudo dnf install jetbrains-mono-fonts papirus-icon-theme
-   ```
+# System tray apps
+sudo pacman -S network-manager-applet blueman polkit-kde-agent
 
-   </details>
+# Fonts and themes
+sudo pacman -S ttf-jetbrains-mono-nerd papirus-icon-theme qt5ct
 
-   <details>
-   <summary>Debian / Ubuntu</summary>
+# AUR packages (optional, for video wallpaper)
+yay -S mpvpaper swww bibata-cursor-theme
+```
 
-   > ⚠️ Hyprland requires manual compilation or external repos on Debian/Ubuntu.
-   > See [Hyprland Wiki](https://wiki.hyprland.org/Getting-Started/Installation/)
+#### Fedora
 
-   ```bash
-   sudo apt install waybar rofi dunst kitty brightnessctl playerctl
-   sudo apt install grim slurp wl-clipboard network-manager-gnome blueman
-   sudo apt install fonts-jetbrains-mono papirus-icon-theme
-   ```
+```bash
+sudo dnf install hyprland hyprlock hypridle xdg-desktop-portal-hyprland \
+    waybar rofi dunst kitty brightnessctl playerctl grim slurp wl-clipboard \
+    network-manager-applet blueman polkit jetbrains-mono-fonts papirus-icon-theme
+```
 
-   </details>
+</details>
 
-2. **Clone & Copy Configs**
+<details>
+<summary><b>2. Copy Configuration Files</b></summary>
 
-   ```bash
-   git clone https://github.com/akshaygb/hyprland-cyberpunk-dotfiles.git
-   cd hyprland-cyberpunk-dotfiles
-   
-   # Backup existing configs
-   cp -r ~/.config/hypr ~/.config/hypr.bak
-   
-   # Copy new configs
-   cp -r config/* ~/.config/
-   
-   # Make scripts executable
-   chmod +x ~/.config/hypr/scripts/*.sh
-   chmod +x ~/.config/waybar/scripts/*
-   ```
+```bash
+# Backup existing configs
+mkdir -p ~/.config-backup
+cp -r ~/.config/hypr ~/.config-backup/ 2>/dev/null
 
-3. **Add Wallpapers**
+# Clone and copy
+git clone https://github.com/AKSHAY-RSOL/hyprland-cyberpunk-dotfiles.git
+cd hyprland-cyberpunk-dotfiles
+cp -r config/* ~/.config/
 
-   Place your wallpapers in `~/.config/hypr/wallpapers/`:
-   
-   | File | Purpose |
-   |------|---------|
-   | `6.mp4` | Main video wallpaper |
-   | `lockvideo.mp4` | Lock transition video |
-   | `lock_wallpaper.png` | Lock screen background |
+# Make scripts executable
+chmod +x ~/.config/hypr/scripts/*.sh
+```
 
-4. **Log Out & Select Hyprland**
+</details>
+
+<details>
+<summary><b>3. Add Wallpapers</b></summary>
+
+Add your wallpapers to `~/.config/hypr/wallpapers/`:
+
+| File | Purpose | Required |
+|------|---------|----------|
+| `video.mp4` | Desktop video wallpaper | Optional |
+| `wallpaper.png` | Static wallpaper fallback | Yes |
+| `lock_wallpaper.png` | Lock screen background | Yes |
+| `lockvideo.mp4` | Lock transition video | Optional |
+
+**Wallpaper Sources:**
+- [Wallhaven](https://wallhaven.cc/search?q=cyberpunk)
+- [r/wallpapers](https://reddit.com/r/wallpapers)
+
+</details>
 
 ---
 
 ## ⌨️ Keybindings
 
-| Keybinding | Action |
-|------------|--------|
-| `SUPER + Q` | Open Terminal (Kitty) |
-| `SUPER + D` | App Launcher (Rofi) |
+### Essential
+
+| Key | Action |
+|-----|--------|
+| `SUPER + Q` | Open Terminal |
+| `SUPER + D` | App Launcher |
 | `SUPER + C` | Close Window |
 | `SUPER + M` | Exit Hyprland |
-| `SUPER + E` | File Manager |
-| `SUPER + V` | Toggle Floating |
 | `SUPER + L` | Lock Screen |
-| `SUPER + H` | Toggle Special Workspace |
-| `SUPER + 1-0` | Switch Workspaces |
-| `SUPER + SHIFT + 1-0` | Move Window to Workspace |
-| `SUPER + Arrow Keys` | Move Focus |
-| `SUPER + SHIFT + Arrow Keys` | Move Window |
-| `SUPER + SHIFT + S` | Screenshot (Region) |
+| `SUPER + E` | File Manager |
 
-### Media Controls
+### Windows
+
+| Key | Action |
+|-----|--------|
+| `SUPER + V` | Toggle Floating |
+| `SUPER + F` | Fullscreen |
+| `SUPER + Arrow` | Move Focus |
+| `SUPER + SHIFT + Arrow` | Move Window |
+| `SUPER + CTRL + Arrow` | Resize Window |
+
+### Workspaces
+
+| Key | Action |
+|-----|--------|
+| `SUPER + 1-0` | Switch Workspace |
+| `SUPER + SHIFT + 1-0` | Move to Workspace |
+| `SUPER + H` | Special Workspace |
+| `SUPER + Scroll` | Cycle Workspaces |
+
+### Screenshots
+
+| Key | Action |
+|-----|--------|
+| `Print` | Full Screen |
+| `SUPER + Print` | Active Window |
+| `SUPER + SHIFT + S` | Select Region |
+
+### Media
+
 | Key | Action |
 |-----|--------|
 | `XF86AudioRaiseVolume` | Volume Up |
 | `XF86AudioLowerVolume` | Volume Down |
 | `XF86AudioMute` | Toggle Mute |
-| `XF86MonBrightnessUp` | Brightness Up |
-| `XF86MonBrightnessDown` | Brightness Down |
-| `XF86AudioPlay` | Play/Pause Media |
-| `XF86AudioNext` | Next Track |
-| `XF86AudioPrev` | Previous Track |
+| `XF86AudioPlay` | Play/Pause |
+| `XF86MonBrightness*` | Brightness |
 
 ---
 
@@ -197,13 +187,12 @@ chmod +x install.sh
 
 | Color | Hex | Usage |
 |-------|-----|-------|
-| ![#00f3ff](https://placehold.co/20x20/00f3ff/00f3ff) | `#00f3ff` | Primary (Cyan) |
-| ![#ff00ff](https://placehold.co/20x20/ff00ff/ff00ff) | `#ff00ff` | Secondary (Magenta) |
-| ![#ff5555](https://placehold.co/20x20/ff5555/ff5555) | `#ff5555` | Error/Critical (Red) |
-| ![#50fa7b](https://placehold.co/20x20/50fa7b/50fa7b) | `#50fa7b` | Success (Green) |
-| ![#bd93f9](https://placehold.co/20x20/bd93f9/bd93f9) | `#bd93f9` | Accent (Purple) |
-| ![#050a0e](https://placehold.co/20x20/050a0e/050a0e) | `#050a0e` | Background |
-| ![#595959](https://placehold.co/20x20/595959/595959) | `#595959` | Inactive |
+| 🔵 Cyan | `#00f3ff` | Primary, borders, highlights |
+| 🟣 Magenta | `#ff00ff` | Secondary, accents |
+| 🔴 Red | `#ff5555` | Errors, critical |
+| 🟢 Green | `#50fa7b` | Success, battery |
+| 🟣 Purple | `#bd93f9` | Memory, accents |
+| ⚫ Background | `#050a0e` | Dark base |
 
 ---
 
@@ -212,26 +201,24 @@ chmod +x install.sh
 ```
 ~/.config/
 ├── hypr/
-│   ├── hyprland.conf      # Main Hyprland config
-│   ├── hyprlock.conf      # Lock screen config
-│   ├── hypridle.conf      # Idle daemon config
+│   ├── hyprland.conf         # Main config
+│   ├── hyprlock.conf         # Lock screen
+│   ├── hypridle.conf         # Idle management
 │   ├── scripts/
-│   │   ├── lock_with_video.sh    # Video lock transition
-│   │   └── random_wallpaper.sh   # Random wallpaper (swww)
-│   └── wallpapers/        # Your wallpapers here
+│   │   ├── screenshot.sh     # Screenshot utility
+│   │   ├── lock.sh           # Lock with video
+│   │   ├── wallpaper.sh      # Random wallpaper
+│   │   └── tablet_mode.sh    # External display
+│   └── wallpapers/           # Your wallpapers
 ├── waybar/
-│   ├── config             # Waybar modules config
-│   ├── style.css          # Waybar styling
-│   └── scripts/
-│       ├── mediaplayer.py
-│       └── music_popup.sh
+│   ├── config                # Modules config
+│   └── style.css             # Styling
 ├── rofi/
-│   ├── launcher.rasi      # App launcher theme
-│   └── music-popup.rasi   # Music popup theme
+│   └── launcher.rasi         # App launcher theme
 ├── kitty/
-│   └── kitty.conf         # Terminal config
+│   └── kitty.conf            # Terminal config
 └── dunst/
-    └── dunstrc            # Notifications config
+    └── dunstrc               # Notifications
 ```
 
 ---
@@ -243,36 +230,31 @@ chmod +x install.sh
 Edit `~/.config/hypr/hyprland.conf`:
 
 ```bash
-# Comment out mpvpaper
-# exec-once = mpvpaper -o "loop" eDP-1 $HOME/.config/hypr/wallpapers/6.mp4 &
+# Comment video wallpaper:
+# exec-once = mpvpaper -o "loop" eDP-1 ~/.config/hypr/wallpapers/video.mp4
 
-# Uncomment swww
-exec-once = swww init &
-exec-once = swww img $HOME/.config/hypr/wallpapers/your_wallpaper.png &
+# Uncomment static wallpaper:
+exec-once = swww init
+exec-once = sleep 1 && swww img ~/.config/hypr/wallpapers/wallpaper.png
 ```
 
-### Fix Temperature Module
+### Adjust Transparency
 
-Find your temperature sensor:
+In `~/.config/hypr/hyprland.conf`:
+
 ```bash
-ls /sys/class/hwmon/*/temp1_input
-```
-
-Update `~/.config/waybar/config`:
-```json
-"temperature": {
-    "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
-    ...
+decoration {
+    active_opacity = 0.90    # 1.0 = fully opaque
+    inactive_opacity = 0.80
 }
 ```
 
-### Change Opacity
+### Change Blur Intensity
 
-In `~/.config/hypr/hyprland.conf`:
 ```bash
-decoration {
-    active_opacity = 0.85    # Increase for less transparency
-    inactive_opacity = 0.75
+blur {
+    size = 10      # Increase for more blur
+    passes = 4     # More passes = smoother
 }
 ```
 
@@ -281,70 +263,72 @@ decoration {
 ## ❓ Troubleshooting
 
 <details>
-<summary><b>Black screen on startup</b></summary>
-
-- Check if your GPU drivers are installed
-- Verify monitor config: `hyprctl monitors`
-- Try fallback config: `monitor=,preferred,auto,1`
-
-</details>
-
-<details>
 <summary><b>Waybar not showing</b></summary>
 
 ```bash
 killall waybar
 waybar &
+
+# Check for errors
+waybar 2>&1 | head -20
 ```
-
-Check for errors: `waybar 2>&1 | head -20`
-
 </details>
 
 <details>
 <summary><b>Video wallpaper not working</b></summary>
 
-- Install mpvpaper: `yay -S mpvpaper`
-- Check if video exists: `ls ~/.config/hypr/wallpapers/6.mp4`
-- Try manually: `mpvpaper -o "loop" eDP-1 ~/.config/hypr/wallpapers/6.mp4`
-
+1. Install mpvpaper: `yay -S mpvpaper`
+2. Check video exists: `ls ~/.config/hypr/wallpapers/video.mp4`
+3. Test manually: `mpvpaper -o "loop" eDP-1 ~/.config/hypr/wallpapers/video.mp4`
 </details>
 
 <details>
-<summary><b>Cursor not showing</b></summary>
+<summary><b>Screenshots not saving</b></summary>
 
-Run in terminal:
 ```bash
+# Check dependencies
+which grim slurp wl-copy
+
+# Create screenshot directory
+mkdir -p ~/Pictures/Screenshots
+
+# Test manually
+grim ~/test.png
+```
+</details>
+
+<details>
+<summary><b>Cursor not visible</b></summary>
+
+```bash
+# Install cursor theme
+yay -S bibata-cursor-theme
+
+# Set cursor
 hyprctl setcursor Bibata-Modern-Ice 24
 ```
-
-Or install a cursor theme:
-```bash
-yay -S bibata-cursor-theme
-```
-
 </details>
 
 ---
 
 ## 🙏 Credits
 
-- [Hyprland](https://hyprland.org/) - The Wayland compositor
-- [Dracula Theme](https://draculatheme.com/) - Color inspiration
-- [JetBrains Mono](https://www.jetbrains.com/lp/mono/) - Font
+- [Hyprland](https://hyprland.org/) - The amazing Wayland compositor
+- [JetBrains Mono](https://www.jetbrains.com/lp/mono/) - Beautiful font
 - [Papirus Icons](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
+- [Dracula Theme](https://draculatheme.com/) - Color inspiration
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file.
+MIT License - See [LICENSE](LICENSE)
 
 ---
 
 <div align="center">
 
-**Made with 💜 by [akshaygb](https://github.com/akshaygb)**
+**Made with 💜 by [AKSHAY-RSOL](https://github.com/AKSHAY-RSOL)**
 
 *If you like this rice, give it a ⭐!*
 
